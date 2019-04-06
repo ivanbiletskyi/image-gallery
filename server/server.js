@@ -4,6 +4,7 @@ const path = require("path");
 
 const fs = require("fs");
 const DATA_FILE_PATH = path.join(__dirname, "./data.json");
+console.log(DATA_FILE_PATH);
 const images = readFromJsonSync();
 
 const app = express();

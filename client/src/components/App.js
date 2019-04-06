@@ -3,9 +3,6 @@ import "./styles/App.css";
 import { Provider } from "react-redux";
 import Gallery from "./Gallery";
 import store from "../redux/store";
-// import Image from "./Image";
-// import inModal from "./inModal";
-// const ImageInModal = inModal(Image);
 
 class App extends Component {
   state = { isModalOpened: false };
