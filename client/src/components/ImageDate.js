@@ -1,4 +1,3 @@
-import styles from "./styles/ImageDate.css";
 import React from "react";
 import PropTypes from "prop-types";
 

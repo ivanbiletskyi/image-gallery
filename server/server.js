@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const fs = require("fs");
-const DATA_FILE_PATH = "./data.json";
+const DATA_FILE_PATH = path.join(__dirname, "./data.json");
 const images = readFromJsonSync();
 
 const app = express();
@@ -40,6 +40,15 @@ app.put("/api/image/:imageId/rate", (req, res) => {
     res.status(400).send("Wrong image rate");
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, "client/build")));
+  // Handle React routing, return all requests to React app
+  // app.get('*', function(req, res) {
+  //   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  // });
+}
 
 app.listen(port, err => {
   if (err) {

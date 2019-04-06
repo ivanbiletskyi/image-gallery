@@ -21,7 +21,7 @@ class FullImageViewer extends Component {
   };
 
   render() {
-    const { id, url, title, description, date, rate } = this.props;
+    const { url, title, description, date, rate } = this.props;
     return (
       <div className={styles.viewer_container}>
         <div className={styles.title_block}>
