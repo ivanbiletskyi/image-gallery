@@ -1,0 +1,29 @@
+:local(.thumbnail) {
+  width: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+:local(.thumbnail):hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+:local(.title_block) {
+  padding: 0 1em;
+}
+:local(.image) {
+  max-width: 100%;
+  height: auto;
+}
+:local(.info_block) {
+  display: flex;
+  justify-content: space-between;
+}
+:local(.date_block),
+:local(.rate_block) {
+  padding: 0.5em;
+}
