@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import classnames from "classnames";
-import "./styles/inModal.css";
+import styles from "./styles/inModal.css";
 
 const modalRoot = document.getElementById("modal-root");
 
@@ -25,10 +25,10 @@ export default function inModal(WrappedComponent) {
       const { isOpened, onClose, ...passThroughProps } = this.props;
       return ReactDOM.createPortal(
         <div
-          className={classnames("modal", isOpened && "modal-opened")}
+          className={classnames(styles.modal, isOpened && styles.opened)}
           onClick={onClose}
         >
-          <div className="modal-content" onClick={this.modalContentClick}>
+          <div className={styles.content} onClick={this.modalContentClick}>
             <WrappedComponent {...passThroughProps} />
           </div>
         </div>,

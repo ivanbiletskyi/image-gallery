@@ -1,6 +1,5 @@
-import "./styles/Gallery.css";
+import styles from "./styles/Gallery.css";
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getImages } from "../redux/actions/rootActions";
 import Spinner from "react-md-spinner";
@@ -9,10 +8,6 @@ import FullImageViewer from "./FullImageViewer";
 import inModal from "./inModal";
 const FullImageViewerInModal = inModal(FullImageViewer);
 export class Gallery extends Component {
-  static propTypes = {
-    // prop: PropTypes,
-  };
-
   state = {
     isImageViewerShown: false,
     shownImage: null,
@@ -27,6 +22,7 @@ export class Gallery extends Component {
       shownImage: this.props.images.find(image => image.id === imageId),
     });
   };
+
   handleModalClose = () => {
     this.setState({ isImageViewerShown: false, shownImage: null });
   };
@@ -35,7 +31,7 @@ export class Gallery extends Component {
     const { images, isLoading, isError, error } = this.props;
     const { isImageViewerShown, shownImage } = this.state;
     return (
-      <div className="gallery">
+      <div className={styles.gallery}>
         {!isLoading &&
           !isError &&
           images &&
@@ -51,7 +47,7 @@ export class Gallery extends Component {
             />
           ))}
         {isLoading && <Spinner />}
-        {isError && <div className="error-block">{error.message}</div>}
+        {isError && <div className={styles.error_block}>{error.message}</div>}
         {isImageViewerShown && (
           <FullImageViewerInModal
             isOpened={isImageViewerShown}

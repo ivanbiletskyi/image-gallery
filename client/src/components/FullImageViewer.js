@@ -40,12 +40,9 @@ class FullImageViewer extends Component {
   }
 }
 
-// const mapStateToProps = state => ({});
-
 const mapDispatchToProps = { setImageRate };
 
 export default connect(
-  // mapStateToProps,
   null,
   mapDispatchToProps
 )(FullImageViewer);

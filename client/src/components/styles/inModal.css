@@ -1,4 +1,4 @@
-.modal {
+:local(.modal) {
   display: none;
   position: fixed;
   z-index: 1;
@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal-content {
+:local(.content) {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -19,6 +19,6 @@
   width: 80%;
 }
 
-.modal-opened {
+:local(.opened) {
   display: block;
 }

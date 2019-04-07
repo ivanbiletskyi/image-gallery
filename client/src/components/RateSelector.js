@@ -9,6 +9,7 @@ export default class RateSelector extends Component {
   };
 
   state = { selectedRate: this.props.currentRate || 0, isRateChanged: false };
+
   handleSelect = ({ target: { value } }) => {
     this.setState({ selectedRate: value, isRateChanged: true });
   };
@@ -22,7 +23,7 @@ export default class RateSelector extends Component {
     let rateVariants = [...Array(5)].map((_value, index) => ({
       value: index + 1,
       description: [...Array(index + 1)].map(() => "⭐").join(""),
-    })); //create variants with values from 1 to 5
+    })); //create variants with values from 1 to 5 and stars in description
     if (!selectedRate)
       rateVariants = [
         { value: 0, description: "Rate this image:" },

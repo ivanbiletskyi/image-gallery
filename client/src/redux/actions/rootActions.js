@@ -1,14 +1,9 @@
 import Actions from "../constants/actionTypes";
-import { IMAGES_URL, IMAGE_URL } from "../constants/api";
 const axios = require("axios");
-// axios.defaults.headers.common["Access-Control-Allow-Origin"] = "127.0.0.1:3000";
-// const axiosInstance = axios.create({
-//   headers.
-// })
 
 export const getImages = () => dispatch => {
   dispatch({ type: Actions.GET_IMAGES_REQUEST });
-  axios.get(IMAGES_URL).then(
+  axios.get("/api/images").then(
     response => {
       if (response.status === 200) {
         dispatch({ type: Actions.GET_IMAGES_SUCCESS, images: response.data });
@@ -31,7 +26,7 @@ export const getImages = () => dispatch => {
 export const setImageRate = (imageId, rate) => dispatch => {
   rate = +rate;
   dispatch({ type: Actions.SET_IMAGE_RATE_REQUEST });
-  axios.put(`${IMAGE_URL}/${imageId}/rate`, { rate }).then(
+  axios.put(`/api/image/${imageId}/rate`, { rate }).then(
     response => {
       if (response.status === 200) {
         dispatch({ type: Actions.SET_IMAGE_RATE_SUCCESS, imageId, rate });
